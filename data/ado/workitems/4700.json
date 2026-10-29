@@ -1,0 +1,42 @@
+{
+  "id": 4700,
+  "rev": 9,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Sprint 21",
+    "System.WorkItemType": "Feature",
+    "System.State": "Active",
+    "System.Reason": "Implementation started",
+    "System.AssignedTo": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CreatedDate": "2026-02-03T10:00:00Z",
+    "System.CreatedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.ChangedDate": "2026-10-05T09:20:00Z",
+    "System.ChangedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CommentCount": 0,
+    "System.Title": "Invoice data export",
+    "System.Tags": "export; invoices",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div>Finance needs invoice data outside the app (spreadsheets, the accounting system, auditors).&nbsp;This feature collects all export-related stories.</div><div><br></div><div><i>Out of scope:</i> real-time integrations.</div></div>",
+    "Microsoft.VSTS.Common.Priority": 1
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4500",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4700"
+}

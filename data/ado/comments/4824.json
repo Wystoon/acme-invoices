@@ -1,0 +1,28 @@
+{
+  "comments": [
+    {
+      "id": 92001,
+      "workItemId": 4824,
+      "version": 1,
+      "text": "<div>Fine from the database side. Please follow the migration guide; this one is additive, so no destructive marker needed.</div>",
+      "createdBy": {
+        "displayName": "Petra Vogel",
+        "uniqueName": "petra.vogel@acme.example"
+      },
+      "createdDate": "2026-10-02T10:15:00Z",
+      "modifiedDate": "2026-10-02T10:15:00Z"
+    },
+    {
+      "id": 92002,
+      "workItemId": 4824,
+      "version": 1,
+      "text": "<div>Finance confirmed 14 days as the default; the longest contract we have is 90 days, 120 leaves room.</div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-16T11:58:00Z",
+      "modifiedDate": "2026-10-16T11:58:00Z"
+    }
+  ]
+}

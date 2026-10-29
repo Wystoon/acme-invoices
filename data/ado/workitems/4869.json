@@ -1,0 +1,44 @@
+{
+  "id": 4869,
+  "rev": 5,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Sprint 23",
+    "System.WorkItemType": "User Story",
+    "System.State": "New",
+    "System.Reason": "New",
+    "System.AssignedTo": {
+      "displayName": "Dana Novak",
+      "uniqueName": "dana.novak@acme.example"
+    },
+    "System.CreatedDate": "2026-07-01T09:00:00Z",
+    "System.CreatedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.ChangedDate": "2026-09-01T16:30:00Z",
+    "System.ChangedBy": {
+      "displayName": "Dana Novak",
+      "uniqueName": "dana.novak@acme.example"
+    },
+    "System.CommentCount": 0,
+    "System.Title": "Add payment date column to the export",
+    "System.Tags": "export; finance",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div><b>Add payment date column to the export</b>: requested by Finance so that month-end close needs fewer manual steps.</div><div><br></div><div>Raised in the export refinement session.&nbsp;Details to be agreed with Finance.</div></div>",
+    "Microsoft.VSTS.Common.AcceptanceCriteria": "<ul><li>Add payment date column to the export.</li><li>Covered by tests.</li></ul>",
+    "Microsoft.VSTS.Scheduling.StoryPoints": 5,
+    "Microsoft.VSTS.Common.Priority": 3
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4700",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4869"
+}

@@ -1,0 +1,5 @@
+# Agent configuration, hooks and CI checks belong to the platform team.
+/.claude/            @acme/dev-platform
+/demo-configs/       @acme/dev-platform
+/tools/hooks/        @acme/dev-platform
+/tools/ci/           @acme/dev-platform

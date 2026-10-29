@@ -1,0 +1,46 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--acme-space-2);
+  margin-bottom: var(--acme-space-3);
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--acme-color-surface);
+  border: 1px solid var(--acme-color-border);
+  border-radius: var(--acme-radius);
+
+  th,
+  td {
+    padding: var(--acme-space-2) var(--acme-space-3);
+    text-align: left;
+    border-bottom: 1px solid var(--acme-color-border);
+  }
+
+  th {
+    font-size: var(--acme-font-size-small);
+    color: var(--acme-color-muted);
+  }
+
+  .numeric {
+    text-align: right;
+  }
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--acme-space-3);
+  color: var(--acme-color-muted);
+}
+
+.state {
+  color: var(--acme-color-muted);
+}
+
+.state--error {
+  color: var(--acme-color-danger);
+}

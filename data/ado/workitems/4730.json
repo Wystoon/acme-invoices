@@ -1,0 +1,42 @@
+{
+  "id": 4730,
+  "rev": 6,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Sprint 21",
+    "System.WorkItemType": "Feature",
+    "System.State": "Active",
+    "System.Reason": "Implementation started",
+    "System.AssignedTo": {
+      "displayName": "Jonas Eklund",
+      "uniqueName": "jonas.eklund@acme.example"
+    },
+    "System.CreatedDate": "2026-03-10T09:00:00Z",
+    "System.CreatedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.ChangedDate": "2026-10-02T16:05:00Z",
+    "System.ChangedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CommentCount": 0,
+    "System.Title": "Invoice UI refresh",
+    "System.Tags": "ui",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div>Make the invoice list faster to scan: status badges, better paging, export button.&nbsp;Follows the Angular style guide and the design tokens in <code>src/styles.scss</code>.</div></div>",
+    "Microsoft.VSTS.Common.Priority": 2
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4500",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4730"
+}

@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "acme": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["tools/acme-mcp/dist/index.js"],
+      "cwd": "${workspaceFolder}",
+      "env": { "ACME_TOOLSET": "focused" }
+    }
+  }
+}

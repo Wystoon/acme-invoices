@@ -1,0 +1,32 @@
+{
+  "id": 4400,
+  "rev": 3,
+  "fields": {
+    "System.AreaPath": "Acme",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026",
+    "System.WorkItemType": "Initiative",
+    "System.State": "Active",
+    "System.Reason": "Approved",
+    "System.AssignedTo": {
+      "displayName": "Lena Hofer",
+      "uniqueName": "lena.hofer@acme.example"
+    },
+    "System.CreatedDate": "2025-11-17T09:00:00Z",
+    "System.CreatedBy": {
+      "displayName": "Lena Hofer",
+      "uniqueName": "lena.hofer@acme.example"
+    },
+    "System.ChangedDate": "2026-01-12T10:30:00Z",
+    "System.ChangedBy": {
+      "displayName": "Lena Hofer",
+      "uniqueName": "lena.hofer@acme.example"
+    },
+    "System.CommentCount": 0,
+    "System.Title": "Finance platform 2026",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div>Modernise how Acme bills its customers in 2026: self-service for Finance, fewer manual exports, and reliable totals.</div><div><br></div><div>Success measure: month-end close for invoicing takes&nbsp;under one day.</div></div>",
+    "Microsoft.VSTS.Common.Priority": 1
+  },
+  "relations": [],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4400"
+}

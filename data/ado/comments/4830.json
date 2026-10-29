@@ -1,0 +1,16 @@
+{
+  "comments": [
+    {
+      "id": 93001,
+      "workItemId": 4830,
+      "version": 1,
+      "text": "<div>AC to follow after the call with Finance.</div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-14T08:09:00Z",
+      "modifiedDate": "2026-10-14T08:09:00Z"
+    }
+  ]
+}

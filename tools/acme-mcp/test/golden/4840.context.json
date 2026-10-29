@@ -1,0 +1,249 @@
+{
+  "schema": "acme.work-item-context/v1",
+  "workItem": {
+    "id": 4840,
+    "type": "Bug",
+    "title": "Invoice total off by 0.01 for some line combinations",
+    "state": "Active",
+    "assignedTo": "Dana Novak",
+    "tags": [
+      "invoices",
+      "rounding"
+    ],
+    "description": "Repro steps\n1. Run the API locally: dotnet run --project src/backend/Acme.Invoices.Api --launch-profile http\n2. Open GET /api/invoices/17 (INV-2026-0017, Bluefen Bakery, EUR).\n3. The invoice has two lines: \"SMS credits, EU\" 3 × 0.335 = 1.01 and \"SMS credits, UK\" 3 × 0.335 = 1.01.\nExpected: invoice total 2.02, the sum of the line totals printed on the invoice.\nActual: invoice total 2.01.\n\nCause (Dana): Invoice.Total rounds the sum of the unrounded line amounts (1.005 + 1.005 = 2.010 → 2.01) instead of adding the rounded line totals (1.01 + 1.01 = 2.02).",
+    "acceptanceCriteria": [
+      "The invoice total is the sum of the rounded line totals: round each line first (Money.Round), then sum.",
+      "INV-2026-0017 shows a total of 2.02.",
+      "Single-line rounding does not change (2 decimals, MidpointRounding.AwayFromZero).",
+      "A unit test covers two lines of 3 × 0.335 (expected total 2.02); all existing tests stay green."
+    ]
+  },
+  "parents": [
+    {
+      "id": 4700,
+      "type": "Feature",
+      "title": "Invoice data export",
+      "state": "Active"
+    },
+    {
+      "id": 4500,
+      "type": "Epic",
+      "title": "Billing self-service",
+      "state": "Active"
+    },
+    {
+      "id": 4400,
+      "type": "Initiative",
+      "title": "Finance platform 2026",
+      "state": "Active"
+    }
+  ],
+  "siblings": [
+    {
+      "id": 4821,
+      "type": "User Story",
+      "title": "Export invoices as CSV",
+      "state": "Active"
+    },
+    {
+      "id": 4841,
+      "type": "User Story",
+      "title": "Export filter by currency",
+      "state": "New"
+    },
+    {
+      "id": 4842,
+      "type": "User Story",
+      "title": "Schedule monthly export",
+      "state": "New"
+    },
+    {
+      "id": 4843,
+      "type": "User Story",
+      "title": "Export credit notes",
+      "state": "Active"
+    },
+    {
+      "id": 4844,
+      "type": "User Story",
+      "title": "Include customer VAT number in export",
+      "state": "Resolved"
+    },
+    {
+      "id": 4845,
+      "type": "User Story",
+      "title": "Export invoice lines as a separate file",
+      "state": "Closed"
+    },
+    {
+      "id": 4846,
+      "type": "User Story",
+      "title": "Email the export link to Finance",
+      "state": "New"
+    },
+    {
+      "id": 4847,
+      "type": "User Story",
+      "title": "Remember the last export filters",
+      "state": "Active"
+    },
+    {
+      "id": 4848,
+      "type": "User Story",
+      "title": "Export audit trail",
+      "state": "New"
+    },
+    {
+      "id": 4849,
+      "type": "User Story",
+      "title": "Export in the customer's language",
+      "state": "New"
+    },
+    {
+      "id": 4850,
+      "type": "User Story",
+      "title": "Add export button to invoice list",
+      "state": "Active"
+    },
+    {
+      "id": 4851,
+      "type": "User Story",
+      "title": "Export paid invoices only",
+      "state": "Resolved"
+    },
+    {
+      "id": 4852,
+      "type": "User Story",
+      "title": "Export date range presets",
+      "state": "Closed"
+    },
+    {
+      "id": 4853,
+      "type": "User Story",
+      "title": "Add a totals row to the export",
+      "state": "New"
+    },
+    {
+      "id": 4854,
+      "type": "User Story",
+      "title": "Run large exports as a background job",
+      "state": "Active"
+    },
+    {
+      "id": 4855,
+      "type": "User Story",
+      "title": "Export overdue invoices for Collections",
+      "state": "New"
+    },
+    {
+      "id": 4856,
+      "type": "User Story",
+      "title": "Export the exchange rates used",
+      "state": "New"
+    },
+    {
+      "id": 4857,
+      "type": "User Story",
+      "title": "Zip multiple export files",
+      "state": "Active"
+    },
+    {
+      "id": 4858,
+      "type": "User Story",
+      "title": "Choose export columns",
+      "state": "Resolved"
+    },
+    {
+      "id": 4859,
+      "type": "User Story",
+      "title": "Export by customer group",
+      "state": "Closed"
+    }
+  ],
+  "comments": [
+    {
+      "id": 95014,
+      "author": "Mira Castell",
+      "date": "2026-10-21",
+      "text": "AC updated: round each line first, then sum. Ready for development."
+    },
+    {
+      "id": 95013,
+      "author": "Sam Okafor",
+      "date": "2026-10-16",
+      "text": "No operational impact. Ship with the next release train."
+    },
+    {
+      "id": 95012,
+      "author": "Dana Novak",
+      "date": "2026-10-15",
+      "text": "Note for whoever picks this up: do not change Money.Round itself. Single-line rounding is correct."
+    },
+    {
+      "id": 95011,
+      "author": "Jonas Eklund",
+      "date": "2026-10-14",
+      "text": "The UI shows whatever total the API returns. No frontend change needed."
+    },
+    {
+      "id": 95010,
+      "author": "Tom Brandt",
+      "date": "2026-10-13",
+      "text": "Adding a regression case to the QA plan: two lines of 3 × 0.335 must give 2.02."
+    },
+    {
+      "id": 95009,
+      "author": "Dana Novak",
+      "date": "2026-10-12",
+      "text": "Ran a read-only check against the reporting replica (via @Petra Vogel), output below:\ninvoice lines sum(raw) round(sum) sum(round) diff\nINV-2026-0017 2 2.0100 2.01 2.02 -0.01\nINV-2025-1184 3 15.0150 15.02 15.03 -0.01\nINV-2025-1302 2 4.0050 4.01 4.01 0.00\nINV-2026-0231 4 88.0050 88.01 88.02 -0.01\nINV-2026-0388 2 0.6700 0.67 0.68 -0.01\nINV-2026-0402 5 120.3350 120.34 120.34 0.00\nchecked 182,406 invoices, 4 differ (all by -0.01), 0 differ by more\nquery: per-line amount = quantity * unit_price, unrounded; compared Money.Round(sum) with sum(Money.Round(line))\nnote: differences only appear when two or more lines end in exactly half a cent\nnote: no invoice is off by more than one cent; stored payments are not affected\nnote: Bluefen Bakery's payment of 2.02 for INV-2026-0017 is correct; the invoice total is wrong\nnote: the reminder email for INV-2026-0017 also quoted 2.01, because it uses the same total\nruntime: 41.2s on the reporting replica, read-only, no locks taken\nnext: per-line rounding …[cut 188 chars]"
+    },
+    {
+      "id": 95008,
+      "author": "Lena Hofer",
+      "date": "2026-10-08",
+      "text": "Agree with Finance. Per-line rounding, then sum."
+    },
+    {
+      "id": 95007,
+      "author": "Mira Castell",
+      "date": "2026-10-07",
+      "text": "Round per line or round the sum? Finance says: the invoice total must equal the sum of the printed lines."
+    },
+    {
+      "id": 95006,
+      "author": "Petra Vogel",
+      "date": "2026-10-06",
+      "text": "No data fix needed in the database: totals are computed, not stored."
+    },
+    {
+      "id": 95005,
+      "author": "Dana Novak",
+      "date": "2026-10-05",
+      "text": "Only invoices with two or more lines ending in exactly half a cent. In the seed data that is only INV-2026-0017."
+    }
+  ],
+  "complete": true,
+  "missing": [],
+  "warnings": [],
+  "truncated": {
+    "siblings": {
+      "returned": 20,
+      "total": 34
+    },
+    "comments": {
+      "returned": 10,
+      "total": 14
+    },
+    "commentText": [
+      95009
+    ]
+  },
+  "limits": {
+    "parentLevels": 5,
+    "siblings": 20,
+    "comments": 10,
+    "commentChars": 1000,
+    "descriptionChars": 4000
+  },
+  "artifactPath": ".acme/out/4840/context.md"
+}

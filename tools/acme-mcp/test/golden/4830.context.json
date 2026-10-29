@@ -1,0 +1,59 @@
+{
+  "schema": "acme.work-item-context/v1",
+  "workItem": {
+    "id": 4830,
+    "type": "User Story",
+    "title": "Bulk-send overdue reminders",
+    "state": "New",
+    "assignedTo": null,
+    "tags": [
+      "collections",
+      "reminders"
+    ],
+    "description": "As a collections clerk I want to send reminders for all overdue invoices in one go so that I don't have to open every invoice.\n\nOpen questions: per customer or across all customers? One email per invoice or one summary per customer?",
+    "acceptanceCriteria": null
+  },
+  "parents": [
+    {
+      "id": 4710,
+      "type": "Feature",
+      "title": "Collections and reminders",
+      "state": "Active"
+    },
+    {
+      "id": 4500,
+      "type": "Epic",
+      "title": "Billing self-service",
+      "state": "Active"
+    },
+    {
+      "id": 4400,
+      "type": "Initiative",
+      "title": "Finance platform 2026",
+      "state": "Active"
+    }
+  ],
+  "siblings": [],
+  "comments": [
+    {
+      "id": 93001,
+      "author": "Mira Castell",
+      "date": "2026-10-14",
+      "text": "AC to follow after the call with Finance."
+    }
+  ],
+  "complete": false,
+  "missing": [
+    "acceptanceCriteria"
+  ],
+  "warnings": [],
+  "truncated": {},
+  "limits": {
+    "parentLevels": 5,
+    "siblings": 20,
+    "comments": 10,
+    "commentChars": 1000,
+    "descriptionChars": 4000
+  },
+  "artifactPath": ".acme/out/4830/context.md"
+}

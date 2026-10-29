@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.Invoices.Domain\Acme.Invoices.Domain.csproj" />
+    <ProjectReference Include="..\Acme.Invoices.Infrastructure\Acme.Invoices.Infrastructure.csproj" />
+    <ProjectReference Include="..\Acme.LegacyHttp\Acme.LegacyHttp.csproj" />
+  </ItemGroup>
+</Project>

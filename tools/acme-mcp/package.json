@@ -1,0 +1,26 @@
+{
+  "name": "acme-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Acme work items and wiki for agents, as an MCP server (stdio) and a CLI.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "acme-mcp": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"test/*.test.mjs\"",
+    "golden": "npm run build && node test/update-golden.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "typescript": "7.0.2"
+  }
+}

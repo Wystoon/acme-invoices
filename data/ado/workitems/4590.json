@@ -1,0 +1,38 @@
+{
+  "id": 4590,
+  "rev": 2,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Backlog",
+    "System.WorkItemType": "Task",
+    "System.State": "New",
+    "System.Reason": "New",
+    "System.CreatedDate": "2025-07-28T12:00:00Z",
+    "System.CreatedBy": {
+      "displayName": "Dana Novak",
+      "uniqueName": "dana.novak@acme.example"
+    },
+    "System.ChangedDate": "2025-08-04T09:15:00Z",
+    "System.ChangedBy": {
+      "displayName": "Dana Novak",
+      "uniqueName": "dana.novak@acme.example"
+    },
+    "System.CommentCount": 0,
+    "System.Title": "Remove LegacyReportExporter",
+    "System.Tags": "tech-debt",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div>Follow-up from postmortem PM-2025-07.</div><div><code>LegacyReportExporter</code> is the last user of <code>Acme.LegacyHttp</code>. Replace the template download with a typed client from <code>IHttpClientFactory</code>, then remove the project reference and the <code>#pragma</code>.</div></div>",
+    "Microsoft.VSTS.Common.Priority": 3
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4500",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4590"
+}

@@ -1,0 +1,17 @@
+.app-header {
+  padding: var(--acme-space-3) var(--acme-space-4);
+  background: var(--acme-color-surface);
+  border-bottom: 1px solid var(--acme-color-border);
+}
+
+.brand {
+  font-weight: 600;
+  color: var(--acme-color-text);
+  text-decoration: none;
+}
+
+.app-main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: var(--acme-space-4);
+}

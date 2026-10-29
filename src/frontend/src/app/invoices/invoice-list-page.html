@@ -1,0 +1,66 @@
+<h1>Invoices</h1>
+
+<div class="toolbar">
+  <label for="status-filter">Status</label>
+  <select id="status-filter" #statusFilter (change)="selectStatus(statusFilter.value)">
+    <option value="">All</option>
+    @for (option of statuses; track option) {
+      <option [value]="option" [selected]="option === status()">{{ option }}</option>
+    }
+  </select>
+</div>
+
+@if (invoices.error()) {
+  <p class="state state--error" role="alert">Invoices could not be loaded.</p>
+} @else if (invoices.value(); as result) {
+  <table
+    class="invoice-table"
+    [attr.aria-label]="caption()"
+    [attr.aria-busy]="invoices.isLoading()"
+  >
+    <thead>
+      <tr>
+        <th scope="col">Number</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Issued</th>
+        <th scope="col">Due</th>
+        <th scope="col" class="numeric">Total</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (invoice of result.items; track invoice.id) {
+        <tr>
+          <td>
+            <a [routerLink]="['/invoices', invoice.id]">{{ invoice.number }}</a>
+          </td>
+          <td>{{ invoice.customerName }}</td>
+          <td>{{ invoice.issueDate }}</td>
+          <td>{{ invoice.dueDate }}</td>
+          <td class="numeric">{{ invoice.total | currency: invoice.currency }}</td>
+          <td>{{ invoice.status }}</td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="6" class="state">No invoices match this filter.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <nav class="pager" aria-label="Invoice pages">
+    <button type="button" [disabled]="result.page <= 1" (click)="goToPage(result.page - 1)">
+      Previous
+    </button>
+    <span>Page {{ result.page }} of {{ pageCount() }} · {{ result.totalCount }} invoices</span>
+    <button
+      type="button"
+      [disabled]="result.page >= pageCount()"
+      (click)="goToPage(result.page + 1)"
+    >
+      Next
+    </button>
+  </nav>
+} @else {
+  <p class="state">Loading invoices…</p>
+}

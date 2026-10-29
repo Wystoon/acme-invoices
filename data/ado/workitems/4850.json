@@ -1,0 +1,44 @@
+{
+  "id": 4850,
+  "rev": 4,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Sprint 22",
+    "System.WorkItemType": "User Story",
+    "System.State": "Active",
+    "System.Reason": "Implementation started",
+    "System.AssignedTo": {
+      "displayName": "Jonas Eklund",
+      "uniqueName": "jonas.eklund@acme.example"
+    },
+    "System.CreatedDate": "2026-06-10T09:00:00Z",
+    "System.CreatedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.ChangedDate": "2026-09-10T16:30:00Z",
+    "System.ChangedBy": {
+      "displayName": "Jonas Eklund",
+      "uniqueName": "jonas.eklund@acme.example"
+    },
+    "System.CommentCount": 0,
+    "System.Title": "Add export button to invoice list",
+    "System.Tags": "export; ux",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div><b>Add export button to invoice list</b>: requested by Finance so that month-end close needs fewer manual steps.</div><div><br></div><div>Raised in the export refinement session.&nbsp;Details to be agreed with Finance.</div></div>",
+    "Microsoft.VSTS.Common.AcceptanceCriteria": "<ul><li>Add export button to invoice list.</li><li>Covered by tests.</li></ul>",
+    "Microsoft.VSTS.Scheduling.StoryPoints": 8,
+    "Microsoft.VSTS.Common.Priority": 2
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4700",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4850"
+}

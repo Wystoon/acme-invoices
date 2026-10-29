@@ -1,0 +1,28 @@
+{
+  "comments": [
+    {
+      "id": 94001,
+      "workItemId": 4835,
+      "version": 1,
+      "text": "<div>Design: pill badge, danger colours from the tokens, text stays readable at AA contrast.</div>",
+      "createdBy": {
+        "displayName": "Jonas Eklund",
+        "uniqueName": "jonas.eklund@acme.example"
+      },
+      "createdDate": "2026-10-06T09:00:00Z",
+      "modifiedDate": "2026-10-06T09:00:00Z"
+    },
+    {
+      "id": 94002,
+      "workItemId": 4835,
+      "version": 1,
+      "text": "<div>Only for status Overdue for now. Sent-but-late invoices get their own story.</div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-13T15:28:00Z",
+      "modifiedDate": "2026-10-13T15:28:00Z"
+    }
+  ]
+}

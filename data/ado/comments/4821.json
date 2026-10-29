@@ -1,0 +1,148 @@
+{
+  "comments": [
+    {
+      "id": 91001,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>Finance asked whether we can use a <b>semicolon</b> as separator, their spreadsheet locale expects it. Let's do semicolon.</div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-06T09:12:00Z",
+      "modifiedDate": "2026-10-06T09:12:00Z"
+    },
+    {
+      "id": 91002,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>Noted. <a href=\"#\" data-vss-mention=\"version:2.0,mira-castell\">@Mira Castell</a> do we also need the invoice lines, or only one row per invoice?</div>",
+      "createdBy": {
+        "displayName": "Dana Novak",
+        "uniqueName": "dana.novak@acme.example"
+      },
+      "createdDate": "2026-10-07T10:03:00Z",
+      "modifiedDate": "2026-10-07T10:03:00Z"
+    },
+    {
+      "id": 91003,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>Pasting the output of the old batch export from the September close for reference, so we know what went wrong last time:</div><div><code>[2026-09-30 23:58:01] export-job: starting legacy batch export (mode=full, format=csv)<br>[2026-09-30 23:58:01] export-job: connecting to reporting replica<br>[2026-09-30 23:58:04] export-job: query invoices where issue_date between 2026-09-01 and 2026-09-30<br>[2026-09-30 23:58:09] export-job: 14,212 rows fetched in 5.1s<br>[2026-09-30 23:58:09] export-job: WARN customer name contains separator, row 311 (Eskholt Interiors, Ltd.)<br>[2026-09-30 23:58:09] export-job: WARN customer name contains quote, row 2048 (Grisdale \"Old Mill\" Brewing)<br>[2026-09-30 23:58:10] export-job: writing /exports/finance/invoices-20260930.csv<br>[2026-09-30 23:58:12] export-job: ERROR row 311 split into 8 columns, expected 7<br>[2026-09-30 23:58:12] export-job: ERROR row 2048 unterminated quoted field<br>[2026-09-30 23:58:12] export-job: 2 rows skipped, 14,210 rows written<br>[2026-09-30 23:58:13] export-job: totals check: sum(file)=1,982,114.37 sum(db)=1,982,130.12 MISMATCH<br>[2026-09-30 23:58:13] export-job: upload to finance share skipped (share retired 2025)<br>[2026-09-30 23:58:13] export-job: finished with errors after 12.4s, exit code 2<br>[2026-10-01 07:30:44] ops: re-run requested by Finance, same result<br>[2026-10-01 07:31:02] ops: workaround: Finance copied the invoice table from the UI page by page<br>[2026-10-01 09:12:40] ops: copied 1,422 pages of 10 rows each, close finished at 11:05 instead of 09:00<br>[2026-10-01 11:20:15] ops: legacy batch job disabled, replacement tracked in the Invoice data export feature<br>[2026-10-01 11:20:16] ops: log retained for the month-end retrospective, see the #billing-dev channel</code></div>",
+      "createdBy": {
+        "displayName": "Tom Brandt",
+        "uniqueName": "tom.brandt@acme.example"
+      },
+      "createdDate": "2026-10-08T14:41:00Z",
+      "modifiedDate": "2026-10-08T14:41:00Z"
+    },
+    {
+      "id": 91004,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>One row per invoice.&nbsp;Lines are a separate story if Finance ever needs them.</div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-09T08:30:00Z",
+      "modifiedDate": "2026-10-09T08:30:00Z"
+    },
+    {
+      "id": 91005,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>What should happen for very large exports? Production has roughly 180k invoices.</div>",
+      "createdBy": {
+        "displayName": "Dana Novak",
+        "uniqueName": "dana.novak@acme.example"
+      },
+      "createdDate": "2026-10-12T11:20:00Z",
+      "modifiedDate": "2026-10-12T11:20:00Z"
+    },
+    {
+      "id": 91006,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>Cap it at 10,000 rows. Finance always filters by month; if more match, return an error that tells them to narrow the filter.</div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-13T09:05:00Z",
+      "modifiedDate": "2026-10-13T09:05:00Z"
+    },
+    {
+      "id": 91007,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>QA note: I will test with customer names containing commas and quotes. The seed data has <i>Eskholt Interiors, Ltd.</i> and <i>Grisdale \"Old Mill\" Brewing</i>.</div>",
+      "createdBy": {
+        "displayName": "Tom Brandt",
+        "uniqueName": "tom.brandt@acme.example"
+      },
+      "createdDate": "2026-10-14T13:47:00Z",
+      "modifiedDate": "2026-10-14T13:47:00Z"
+    },
+    {
+      "id": 91008,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div><b>Update</b> after talking to Finance again: the semicolon is <b>not</b> needed, plain comma is fine. Their spreadsheet import handles RFC 4180 CSV.</div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-15T16:22:00Z",
+      "modifiedDate": "2026-10-15T16:22:00Z"
+    },
+    {
+      "id": 91009,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>The export button comes with the UI refresh feature. Nothing needed in <code>src/frontend</code> for this story.</div>",
+      "createdBy": {
+        "displayName": "Jonas Eklund",
+        "uniqueName": "jonas.eklund@acme.example"
+      },
+      "createdDate": "2026-10-16T10:10:00Z",
+      "modifiedDate": "2026-10-16T10:10:00Z"
+    },
+    {
+      "id": 91010,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>Filename will be <code>invoices-yyyyMMdd.csv</code> from the injected <code>TimeProvider</code>, not <code>DateTime.Now</code> (coding standards).</div>",
+      "createdBy": {
+        "displayName": "Dana Novak",
+        "uniqueName": "dana.novak@acme.example"
+      },
+      "createdDate": "2026-10-19T08:55:00Z",
+      "modifiedDate": "2026-10-19T08:55:00Z"
+    },
+    {
+      "id": 91011,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>Reminder: the export contains customer data. It stays behind the same access rules as the invoice list and is never written to shared folders.</div>",
+      "createdBy": {
+        "displayName": "Ines Duarte",
+        "uniqueName": "ines.duarte@acme.example"
+      },
+      "createdDate": "2026-10-20T09:40:00Z",
+      "modifiedDate": "2026-10-20T09:40:00Z"
+    },
+    {
+      "id": 91012,
+      "workItemId": 4821,
+      "version": 1,
+      "text": "<div>QA plan ready: filters, date range inclusive on both ends, 422 above 10,000 rows, quoting of commas, quotes and newlines.&nbsp;<a href=\"#\" data-vss-mention=\"version:2.0,dana-novak\">@Dana Novak</a> ping me when the branch is pushed.</div>",
+      "createdBy": {
+        "displayName": "Tom Brandt",
+        "uniqueName": "tom.brandt@acme.example"
+      },
+      "createdDate": "2026-10-20T14:58:00Z",
+      "modifiedDate": "2026-10-20T14:58:00Z"
+    }
+  ]
+}

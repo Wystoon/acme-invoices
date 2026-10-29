@@ -1,0 +1,42 @@
+{
+  "id": 4710,
+  "rev": 4,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Sprint 22",
+    "System.WorkItemType": "Feature",
+    "System.State": "Active",
+    "System.Reason": "Implementation started",
+    "System.AssignedTo": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CreatedDate": "2026-02-03T10:20:00Z",
+    "System.CreatedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.ChangedDate": "2026-09-30T14:00:00Z",
+    "System.ChangedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CommentCount": 0,
+    "System.Title": "Collections and reminders",
+    "System.Tags": "collections",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div>Help Collections chase overdue invoices: reminders, bulk actions and a clear overdue overview.</div></div>",
+    "Microsoft.VSTS.Common.Priority": 2
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4500",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4710"
+}

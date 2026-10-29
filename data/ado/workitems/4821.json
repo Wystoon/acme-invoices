@@ -1,0 +1,52 @@
+{
+  "id": 4821,
+  "rev": 7,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Sprint 21",
+    "System.WorkItemType": "User Story",
+    "System.State": "Active",
+    "System.Reason": "Implementation started",
+    "System.AssignedTo": {
+      "displayName": "Dana Novak",
+      "uniqueName": "dana.novak@acme.example"
+    },
+    "System.CreatedDate": "2026-09-29T08:14:00Z",
+    "System.CreatedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.ChangedDate": "2026-10-20T15:02:00Z",
+    "System.ChangedBy": {
+      "displayName": "Dana Novak",
+      "uniqueName": "dana.novak@acme.example"
+    },
+    "System.CommentCount": 12,
+    "System.Title": "Export invoices as CSV",
+    "System.Tags": "invoices; export",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div><b>As a</b> finance clerk<br><b>I want</b> to download the invoice list as a CSV file<br><b>so that</b> I can reconcile invoices in my spreadsheet at month-end close.</div><div><br></div><div>Today Finance copies the invoice table from the UI page by page.&nbsp; That takes about two hours at every month-end close and is error-prone (screenshot from Mira below).</div><div><img src=\"https://dev.acme.example/acme/_apis/wit/attachments/7f3c2a10-0000-4000-8000-000000004821?fileName=image.png\" alt=\"Image\"></div><div><br></div><div><span style=\"color:rgb(36, 41, 47)\">Scope: <b>backend endpoint only</b>.&nbsp;The export button in the UI is a separate story under <i>Invoice UI refresh</i>.</span></div><div>Use the same filters as the invoice list (<code>GET /api/invoices</code>).&nbsp;</div></div>",
+    "Microsoft.VSTS.Common.AcceptanceCriteria": "<ul><li><code>GET /api/invoices/export.csv</code> returns <code>text/csv; charset=utf-8</code> with <code>Content-Disposition: attachment; filename=\"invoices-&lt;yyyyMMdd&gt;.csv\"</code> (date from the injected <code>TimeProvider</code>).</li><li>Supports the same <code>status</code> and <code>customerId</code> filters as the list endpoint, plus optional <code>from</code>/<code>to</code> issue dates (inclusive).</li><li>Columns, in order: <code>Number,Customer,IssueDate,DueDate,Currency,Total,Status</code>. Dates <code>yyyy-MM-dd</code>, totals with invariant culture and 2 decimals.</li><li>Fields containing a comma, quote or newline are quoted per RFC&nbsp;4180.</li><li>At most 10,000 rows. If more match, respond <code>422</code> with a problem-details message.</li><li>Covered by integration tests.</li></ul>",
+    "Microsoft.VSTS.Scheduling.StoryPoints": 3,
+    "Microsoft.VSTS.Common.Priority": 1
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4700",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    },
+    {
+      "rel": "System.LinkTypes.Related",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4840",
+      "attributes": {
+        "isLocked": false,
+        "name": "Related"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4821"
+}

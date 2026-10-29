@@ -1,0 +1,41 @@
+{
+  "id": 4500,
+  "rev": 5,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026",
+    "System.WorkItemType": "Epic",
+    "System.State": "Active",
+    "System.Reason": "Implementation started",
+    "System.AssignedTo": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CreatedDate": "2025-12-01T08:45:00Z",
+    "System.CreatedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.ChangedDate": "2026-08-24T13:10:00Z",
+    "System.ChangedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CommentCount": 0,
+    "System.Title": "Billing self-service",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div>Finance and Collections can do their routine billing work in the Invoices app without asking engineering for exports, data fixes or reminder runs.</div><div><ul><li>Data export</li><li>Collections and reminders</li><li>Customer management</li><li>Invoice UI refresh</li></ul></div></div>",
+    "Microsoft.VSTS.Common.Priority": 1
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4400",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4500"
+}

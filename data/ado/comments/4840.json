@@ -1,0 +1,172 @@
+{
+  "comments": [
+    {
+      "id": 95001,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Found while testing reminder emails: INV-2026-0017 says 2.01 but its two lines add up to 2.02.</div>",
+      "createdBy": {
+        "displayName": "Tom Brandt",
+        "uniqueName": "tom.brandt@acme.example"
+      },
+      "createdDate": "2026-10-01T15:25:00Z",
+      "modifiedDate": "2026-10-01T15:25:00Z"
+    },
+    {
+      "id": 95002,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Bluefen Bakery paid 2.02 and asked why they \"overpaid\". Raising the priority.</div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-02T08:40:00Z",
+      "modifiedDate": "2026-10-02T08:40:00Z"
+    },
+    {
+      "id": 95003,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Reproduced locally. Each line is 3 &times; 0.335 = 1.005, which rounds to 1.01. The total rounds the raw sum 2.010 to 2.01.</div>",
+      "createdBy": {
+        "displayName": "Dana Novak",
+        "uniqueName": "dana.novak@acme.example"
+      },
+      "createdDate": "2026-10-02T11:15:00Z",
+      "modifiedDate": "2026-10-02T11:15:00Z"
+    },
+    {
+      "id": 95004,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Are other invoices affected?</div>",
+      "createdBy": {
+        "displayName": "Tom Brandt",
+        "uniqueName": "tom.brandt@acme.example"
+      },
+      "createdDate": "2026-10-03T09:00:00Z",
+      "modifiedDate": "2026-10-03T09:00:00Z"
+    },
+    {
+      "id": 95005,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Only invoices with two or more lines ending in exactly half a cent. In the seed data that is only INV-2026-0017.</div>",
+      "createdBy": {
+        "displayName": "Dana Novak",
+        "uniqueName": "dana.novak@acme.example"
+      },
+      "createdDate": "2026-10-05T14:30:00Z",
+      "modifiedDate": "2026-10-05T14:30:00Z"
+    },
+    {
+      "id": 95006,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>No data fix needed in the database: totals are computed, not stored.</div>",
+      "createdBy": {
+        "displayName": "Petra Vogel",
+        "uniqueName": "petra.vogel@acme.example"
+      },
+      "createdDate": "2026-10-06T10:05:00Z",
+      "modifiedDate": "2026-10-06T10:05:00Z"
+    },
+    {
+      "id": 95007,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Round per line or round the sum? Finance says: <b>the invoice total must equal the sum of the printed lines.</b></div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-07T13:20:00Z",
+      "modifiedDate": "2026-10-07T13:20:00Z"
+    },
+    {
+      "id": 95008,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Agree with Finance. Per-line rounding, then sum.</div>",
+      "createdBy": {
+        "displayName": "Lena Hofer",
+        "uniqueName": "lena.hofer@acme.example"
+      },
+      "createdDate": "2026-10-08T09:45:00Z",
+      "modifiedDate": "2026-10-08T09:45:00Z"
+    },
+    {
+      "id": 95009,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Ran a read-only check against the reporting replica (via <a href=\"#\" data-vss-mention=\"version:2.0,petra-vogel\">@Petra Vogel</a>), output below:</div><div><code>invoice        lines  sum(raw)   round(sum)  sum(round)  diff<br>INV-2026-0017  2      2.0100     2.01        2.02        -0.01<br>INV-2025-1184  3      15.0150    15.02       15.03       -0.01<br>INV-2025-1302  2      4.0050     4.01        4.01        0.00<br>INV-2026-0231  4      88.0050    88.01       88.02       -0.01<br>INV-2026-0388  2      0.6700     0.67        0.68        -0.01<br>INV-2026-0402  5      120.3350   120.34      120.34      0.00<br>checked 182,406 invoices, 4 differ (all by -0.01), 0 differ by more<br>query: per-line amount = quantity * unit_price, unrounded; compared Money.Round(sum) with sum(Money.Round(line))<br>note: differences only appear when two or more lines end in exactly half a cent<br>note: no invoice is off by more than one cent; stored payments are not affected<br>note: Bluefen Bakery's payment of 2.02 for INV-2026-0017 is correct; the invoice total is wrong<br>note: the reminder email for INV-2026-0017 also quoted 2.01, because it uses the same total<br>runtime: 41.2s on the reporting replica, read-only, no locks taken<br>next: per-line rounding fix in Invoice.Total, then re-run this check; expected result is 0 invoices differ<br>owner of the check script: Dana Novak; kept in the #billing-dev channel pins for the next month-end close</code></div>",
+      "createdBy": {
+        "displayName": "Dana Novak",
+        "uniqueName": "dana.novak@acme.example"
+      },
+      "createdDate": "2026-10-12T16:10:00Z",
+      "modifiedDate": "2026-10-12T16:10:00Z"
+    },
+    {
+      "id": 95010,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Adding a regression case to the QA plan: two lines of 3 &times; 0.335 must give 2.02.</div>",
+      "createdBy": {
+        "displayName": "Tom Brandt",
+        "uniqueName": "tom.brandt@acme.example"
+      },
+      "createdDate": "2026-10-13T08:30:00Z",
+      "modifiedDate": "2026-10-13T08:30:00Z"
+    },
+    {
+      "id": 95011,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>The UI shows whatever total the API returns. No frontend change needed.</div>",
+      "createdBy": {
+        "displayName": "Jonas Eklund",
+        "uniqueName": "jonas.eklund@acme.example"
+      },
+      "createdDate": "2026-10-14T11:00:00Z",
+      "modifiedDate": "2026-10-14T11:00:00Z"
+    },
+    {
+      "id": 95012,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>Note for whoever picks this up: do <b>not</b> change <code>Money.Round</code> itself. Single-line rounding is correct.</div>",
+      "createdBy": {
+        "displayName": "Dana Novak",
+        "uniqueName": "dana.novak@acme.example"
+      },
+      "createdDate": "2026-10-15T15:35:00Z",
+      "modifiedDate": "2026-10-15T15:35:00Z"
+    },
+    {
+      "id": 95013,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>No operational impact. Ship with the next release train.</div>",
+      "createdBy": {
+        "displayName": "Sam Okafor",
+        "uniqueName": "sam.okafor@acme.example"
+      },
+      "createdDate": "2026-10-16T09:10:00Z",
+      "modifiedDate": "2026-10-16T09:10:00Z"
+    },
+    {
+      "id": 95014,
+      "workItemId": 4840,
+      "version": 1,
+      "text": "<div>AC updated: round each line first, then sum. Ready for development.</div>",
+      "createdBy": {
+        "displayName": "Mira Castell",
+        "uniqueName": "mira.castell@acme.example"
+      },
+      "createdDate": "2026-10-21T10:44:00Z",
+      "modifiedDate": "2026-10-21T10:44:00Z"
+    }
+  ]
+}

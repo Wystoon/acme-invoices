@@ -1,0 +1,43 @@
+// Acme design tokens. Components use these custom properties instead of literal colours and sizes.
+:root {
+  --acme-font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --acme-font-size-small: 0.8125rem;
+
+  --acme-color-text: #1d2433;
+  --acme-color-muted: #5b6474;
+  --acme-color-background: #f5f6f8;
+  --acme-color-surface: #ffffff;
+  --acme-color-border: #d9dde4;
+  --acme-color-primary: #2456c7;
+  --acme-color-success: #1f7a4d;
+  --acme-color-danger: #b42318;
+  --acme-color-danger-surface: #fdecea;
+
+  --acme-space-1: 0.25rem;
+  --acme-space-2: 0.5rem;
+  --acme-space-3: 1rem;
+  --acme-space-4: 1.5rem;
+
+  --acme-radius: 6px;
+  --acme-radius-pill: 999px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--acme-font-family);
+  color: var(--acme-color-text);
+  background: var(--acme-color-background);
+}
+
+a {
+  color: var(--acme-color-primary);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

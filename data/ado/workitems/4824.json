@@ -1,0 +1,44 @@
+{
+  "id": 4824,
+  "rev": 4,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Sprint 22",
+    "System.WorkItemType": "User Story",
+    "System.State": "New",
+    "System.Reason": "New",
+    "System.AssignedTo": {
+      "displayName": "Dana Novak",
+      "uniqueName": "dana.novak@acme.example"
+    },
+    "System.CreatedDate": "2026-10-01T09:30:00Z",
+    "System.CreatedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.ChangedDate": "2026-10-16T12:00:00Z",
+    "System.ChangedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CommentCount": 2,
+    "System.Title": "Add payment terms to customers",
+    "System.Tags": "customers; database",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div><b>As a</b> finance clerk <b>I want</b> each customer to have payment terms <b>so that</b> due dates follow the contract instead of a fixed 30 days.</div><div><br></div><div>This story only stores and exposes the value.&nbsp;Using it for due dates is a follow-up.</div></div>",
+    "Microsoft.VSTS.Common.AcceptanceCriteria": "<ul><li><code>Customer.PaymentTermsDays</code> (int), default 14, allowed range 0–120.</li><li>Exposed in <code>GET /api/customers</code> as <code>paymentTermsDays</code>.</li><li>EF Core migration named <code>AddCustomerPaymentTerms</code> with a working <code>Down()</code>. Existing customers get 14.</li><li>Seed data updated with a fixed value per customer.</li><li>Unit and integration tests.</li></ul>",
+    "Microsoft.VSTS.Scheduling.StoryPoints": 3,
+    "Microsoft.VSTS.Common.Priority": 2
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4720",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4824"
+}

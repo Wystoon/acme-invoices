@@ -1,0 +1,52 @@
+{
+  "id": 4840,
+  "rev": 6,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Sprint 21",
+    "System.WorkItemType": "Bug",
+    "System.State": "Active",
+    "System.Reason": "Approved",
+    "System.AssignedTo": {
+      "displayName": "Dana Novak",
+      "uniqueName": "dana.novak@acme.example"
+    },
+    "System.CreatedDate": "2026-10-01T15:20:00Z",
+    "System.CreatedBy": {
+      "displayName": "Tom Brandt",
+      "uniqueName": "tom.brandt@acme.example"
+    },
+    "System.ChangedDate": "2026-10-21T10:45:00Z",
+    "System.ChangedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CommentCount": 14,
+    "System.Title": "Invoice total off by 0.01 for some line combinations",
+    "System.Tags": "invoices; rounding",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div><b>Repro steps</b></div><ol><li>Run the API locally: <code>dotnet run --project src/backend/Acme.Invoices.Api --launch-profile http</code></li><li>Open <code>GET /api/invoices/17</code> (INV-2026-0017, Bluefen Bakery, EUR).</li><li>The invoice has two lines: \"SMS credits, EU\" 3 &times; 0.335 = <b>1.01</b> and \"SMS credits, UK\" 3 &times; 0.335 = <b>1.01</b>.</li></ol><div><b>Expected:</b> invoice total <b>2.02</b>, the sum of the line totals printed on the invoice.</div><div><b>Actual:</b> invoice total <b>2.01</b>.</div><div><br></div><div><b>Cause</b> (Dana): <code>Invoice.Total</code> rounds the sum of the <i>unrounded</i> line amounts (1.005 + 1.005 = 2.010 &rarr; 2.01) instead of adding the rounded line totals (1.01 + 1.01 = 2.02).</div></div>",
+    "Microsoft.VSTS.Common.AcceptanceCriteria": "<ul><li>The invoice total is the sum of the rounded line totals: round each line first (<code>Money.Round</code>), then sum.</li><li>INV-2026-0017 shows a total of 2.02.</li><li>Single-line rounding does not change (2 decimals, <code>MidpointRounding.AwayFromZero</code>).</li><li>A unit test covers two lines of 3 &times; 0.335 (expected total 2.02); all existing tests stay green.</li></ul>",
+    "Microsoft.VSTS.Common.Priority": 1,
+    "Microsoft.VSTS.Common.Severity": "2 - High"
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4700",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    },
+    {
+      "rel": "System.LinkTypes.Related",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4821",
+      "attributes": {
+        "isLocked": false,
+        "name": "Related"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4840"
+}

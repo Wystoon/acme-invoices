@@ -1,0 +1,44 @@
+{
+  "id": 4835,
+  "rev": 3,
+  "fields": {
+    "System.AreaPath": "Acme\\Billing\\UI",
+    "System.TeamProject": "Acme",
+    "System.IterationPath": "Acme\\2026\\Sprint 22",
+    "System.WorkItemType": "User Story",
+    "System.State": "New",
+    "System.Reason": "New",
+    "System.AssignedTo": {
+      "displayName": "Jonas Eklund",
+      "uniqueName": "jonas.eklund@acme.example"
+    },
+    "System.CreatedDate": "2026-10-05T10:00:00Z",
+    "System.CreatedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.ChangedDate": "2026-10-13T15:30:00Z",
+    "System.ChangedBy": {
+      "displayName": "Mira Castell",
+      "uniqueName": "mira.castell@acme.example"
+    },
+    "System.CommentCount": 2,
+    "System.Title": "Show overdue badge on invoice list",
+    "System.Tags": "ui; collections",
+    "System.Description": "<div style=\"font-family:Segoe UI,sans-serif;font-size:10pt\"><div>Collections scan the invoice list for overdue invoices.&nbsp;Today the status is plain text and easy to miss.</div><div>The API already returns <code>status</code> and <code>daysOverdue</code> for each invoice, so this is a <b>frontend-only</b> change.</div></div>",
+    "Microsoft.VSTS.Common.AcceptanceCriteria": "<ul><li>In the invoice list, invoices with status <code>Overdue</code> show a badge \"Overdue\" with the number of days overdue.</li><li>The badge has an accessible label, e.g. \"Overdue, 12 days\"; the status is not conveyed by colour alone.</li><li>Uses the existing design tokens (<code>--acme-color-danger</code>, <code>--acme-color-danger-surface</code>, <code>--acme-radius-pill</code>); no new literal colours.</li><li>Covered by a unit test.</li></ul>",
+    "Microsoft.VSTS.Scheduling.StoryPoints": 2,
+    "Microsoft.VSTS.Common.Priority": 2
+  },
+  "relations": [
+    {
+      "rel": "System.LinkTypes.Hierarchy-Reverse",
+      "url": "https://dev.acme.example/acme/_apis/wit/workItems/4730",
+      "attributes": {
+        "isLocked": false,
+        "name": "Parent"
+      }
+    }
+  ],
+  "url": "https://dev.acme.example/acme/_apis/wit/workItems/4835"
+}

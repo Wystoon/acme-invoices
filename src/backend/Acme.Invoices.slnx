@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/tests/">
+    <Project Path="tests/Acme.Invoices.Tests/Acme.Invoices.Tests.csproj" />
+  </Folder>
+  <Project Path="Acme.Invoices.Api/Acme.Invoices.Api.csproj" />
+  <Project Path="Acme.Invoices.Domain/Acme.Invoices.Domain.csproj" />
+  <Project Path="Acme.Invoices.Infrastructure/Acme.Invoices.Infrastructure.csproj" />
+  <Project Path="Acme.LegacyHttp/Acme.LegacyHttp.csproj" />
+</Solution>

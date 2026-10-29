@@ -1,0 +1,251 @@
+{
+  "schema": "acme.work-item-context/v1",
+  "workItem": {
+    "id": 4821,
+    "type": "User Story",
+    "title": "Export invoices as CSV",
+    "state": "Active",
+    "assignedTo": "Dana Novak",
+    "tags": [
+      "export",
+      "invoices"
+    ],
+    "description": "As a finance clerk\nI want to download the invoice list as a CSV file\nso that I can reconcile invoices in my spreadsheet at month-end close.\n\nToday Finance copies the invoice table from the UI page by page. That takes about two hours at every month-end close and is error-prone (screenshot from Mira below).\n[image]\n\nScope: backend endpoint only. The export button in the UI is a separate story under Invoice UI refresh.\nUse the same filters as the invoice list (GET /api/invoices).",
+    "acceptanceCriteria": [
+      "GET /api/invoices/export.csv returns text/csv; charset=utf-8 with Content-Disposition: attachment; filename=\"invoices-<yyyyMMdd>.csv\" (date from the injected TimeProvider).",
+      "Supports the same status and customerId filters as the list endpoint, plus optional from/to issue dates (inclusive).",
+      "Columns, in order: Number,Customer,IssueDate,DueDate,Currency,Total,Status. Dates yyyy-MM-dd, totals with invariant culture and 2 decimals.",
+      "Fields containing a comma, quote or newline are quoted per RFC 4180.",
+      "At most 10,000 rows. If more match, respond 422 with a problem-details message.",
+      "Covered by integration tests."
+    ]
+  },
+  "parents": [
+    {
+      "id": 4700,
+      "type": "Feature",
+      "title": "Invoice data export",
+      "state": "Active"
+    },
+    {
+      "id": 4500,
+      "type": "Epic",
+      "title": "Billing self-service",
+      "state": "Active"
+    },
+    {
+      "id": 4400,
+      "type": "Initiative",
+      "title": "Finance platform 2026",
+      "state": "Active"
+    }
+  ],
+  "siblings": [
+    {
+      "id": 4840,
+      "type": "Bug",
+      "title": "Invoice total off by 0.01 for some line combinations",
+      "state": "Active"
+    },
+    {
+      "id": 4841,
+      "type": "User Story",
+      "title": "Export filter by currency",
+      "state": "New"
+    },
+    {
+      "id": 4842,
+      "type": "User Story",
+      "title": "Schedule monthly export",
+      "state": "New"
+    },
+    {
+      "id": 4843,
+      "type": "User Story",
+      "title": "Export credit notes",
+      "state": "Active"
+    },
+    {
+      "id": 4844,
+      "type": "User Story",
+      "title": "Include customer VAT number in export",
+      "state": "Resolved"
+    },
+    {
+      "id": 4845,
+      "type": "User Story",
+      "title": "Export invoice lines as a separate file",
+      "state": "Closed"
+    },
+    {
+      "id": 4846,
+      "type": "User Story",
+      "title": "Email the export link to Finance",
+      "state": "New"
+    },
+    {
+      "id": 4847,
+      "type": "User Story",
+      "title": "Remember the last export filters",
+      "state": "Active"
+    },
+    {
+      "id": 4848,
+      "type": "User Story",
+      "title": "Export audit trail",
+      "state": "New"
+    },
+    {
+      "id": 4849,
+      "type": "User Story",
+      "title": "Export in the customer's language",
+      "state": "New"
+    },
+    {
+      "id": 4850,
+      "type": "User Story",
+      "title": "Add export button to invoice list",
+      "state": "Active"
+    },
+    {
+      "id": 4851,
+      "type": "User Story",
+      "title": "Export paid invoices only",
+      "state": "Resolved"
+    },
+    {
+      "id": 4852,
+      "type": "User Story",
+      "title": "Export date range presets",
+      "state": "Closed"
+    },
+    {
+      "id": 4853,
+      "type": "User Story",
+      "title": "Add a totals row to the export",
+      "state": "New"
+    },
+    {
+      "id": 4854,
+      "type": "User Story",
+      "title": "Run large exports as a background job",
+      "state": "Active"
+    },
+    {
+      "id": 4855,
+      "type": "User Story",
+      "title": "Export overdue invoices for Collections",
+      "state": "New"
+    },
+    {
+      "id": 4856,
+      "type": "User Story",
+      "title": "Export the exchange rates used",
+      "state": "New"
+    },
+    {
+      "id": 4857,
+      "type": "User Story",
+      "title": "Zip multiple export files",
+      "state": "Active"
+    },
+    {
+      "id": 4858,
+      "type": "User Story",
+      "title": "Choose export columns",
+      "state": "Resolved"
+    },
+    {
+      "id": 4859,
+      "type": "User Story",
+      "title": "Export by customer group",
+      "state": "Closed"
+    }
+  ],
+  "comments": [
+    {
+      "id": 91012,
+      "author": "Tom Brandt",
+      "date": "2026-10-20",
+      "text": "QA plan ready: filters, date range inclusive on both ends, 422 above 10,000 rows, quoting of commas, quotes and newlines. @Dana Novak ping me when the branch is pushed."
+    },
+    {
+      "id": 91011,
+      "author": "Ines Duarte",
+      "date": "2026-10-20",
+      "text": "Reminder: the export contains customer data. It stays behind the same access rules as the invoice list and is never written to shared folders."
+    },
+    {
+      "id": 91010,
+      "author": "Dana Novak",
+      "date": "2026-10-19",
+      "text": "Filename will be invoices-yyyyMMdd.csv from the injected TimeProvider, not DateTime.Now (coding standards)."
+    },
+    {
+      "id": 91009,
+      "author": "Jonas Eklund",
+      "date": "2026-10-16",
+      "text": "The export button comes with the UI refresh feature. Nothing needed in src/frontend for this story."
+    },
+    {
+      "id": 91008,
+      "author": "Mira Castell",
+      "date": "2026-10-15",
+      "text": "Update after talking to Finance again: the semicolon is not needed, plain comma is fine. Their spreadsheet import handles RFC 4180 CSV."
+    },
+    {
+      "id": 91007,
+      "author": "Tom Brandt",
+      "date": "2026-10-14",
+      "text": "QA note: I will test with customer names containing commas and quotes. The seed data has Eskholt Interiors, Ltd. and Grisdale \"Old Mill\" Brewing."
+    },
+    {
+      "id": 91006,
+      "author": "Mira Castell",
+      "date": "2026-10-13",
+      "text": "Cap it at 10,000 rows. Finance always filters by month; if more match, return an error that tells them to narrow the filter."
+    },
+    {
+      "id": 91005,
+      "author": "Dana Novak",
+      "date": "2026-10-12",
+      "text": "What should happen for very large exports? Production has roughly 180k invoices."
+    },
+    {
+      "id": 91004,
+      "author": "Mira Castell",
+      "date": "2026-10-09",
+      "text": "One row per invoice. Lines are a separate story if Finance ever needs them."
+    },
+    {
+      "id": 91003,
+      "author": "Tom Brandt",
+      "date": "2026-10-08",
+      "text": "Pasting the output of the old batch export from the September close for reference, so we know what went wrong last time:\n[2026-09-30 23:58:01] export-job: starting legacy batch export (mode=full, format=csv)\n[2026-09-30 23:58:01] export-job: connecting to reporting replica\n[2026-09-30 23:58:04] export-job: query invoices where issue_date between 2026-09-01 and 2026-09-30\n[2026-09-30 23:58:09] export-job: 14,212 rows fetched in 5.1s\n[2026-09-30 23:58:09] export-job: WARN customer name contains separator, row 311 (Eskholt Interiors, Ltd.)\n[2026-09-30 23:58:09] export-job: WARN customer name contains quote, row 2048 (Grisdale \"Old Mill\" Brewing)\n[2026-09-30 23:58:10] export-job: writing /exports/finance/invoices-20260930.csv\n[2026-09-30 23:58:12] export-job: ERROR row 311 split into 8 columns, expected 7\n[2026-09-30 23:58:12] export-job: ERROR row 2048 unterminated quoted field\n[2026-09-30 23:58:12] export-job: 2 rows skipped, 14,210 rows written\n[2026-09-30 23:58:13] export-job: totals c …[cut 705 chars]"
+    }
+  ],
+  "complete": true,
+  "missing": [],
+  "warnings": [],
+  "truncated": {
+    "siblings": {
+      "returned": 20,
+      "total": 34
+    },
+    "comments": {
+      "returned": 10,
+      "total": 12
+    },
+    "commentText": [
+      91003
+    ]
+  },
+  "limits": {
+    "parentLevels": 5,
+    "siblings": 20,
+    "comments": 10,
+    "commentChars": 1000,
+    "descriptionChars": 4000
+  },
+  "artifactPath": ".acme/out/4821/context.md"
+}

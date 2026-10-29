@@ -1,0 +1,49 @@
+<a routerLink="/invoices">← All invoices</a>
+
+@if (invoice.error()) {
+  <p class="state state--error" role="alert">Invoice {{ id() }} could not be loaded.</p>
+} @else if (invoice.value(); as detail) {
+  <h1>{{ detail.number }}</h1>
+
+  <dl class="facts">
+    <dt>Customer</dt>
+    <dd>{{ detail.customer?.name }}</dd>
+    <dt>Issued</dt>
+    <dd>{{ detail.issueDate }}</dd>
+    <dt>Due</dt>
+    <dd>{{ detail.dueDate }}</dd>
+    <dt>Status</dt>
+    <dd>{{ detail.status }}</dd>
+  </dl>
+
+  <table class="lines" aria-label="Invoice lines">
+    <thead>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col" class="numeric">Quantity</th>
+        <th scope="col" class="numeric">Unit price</th>
+        <th scope="col" class="numeric">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (line of detail.lines; track $index) {
+        <tr>
+          <td>{{ line.description }}</td>
+          <td class="numeric">{{ line.quantity | number: '1.0-4' }}</td>
+          <td class="numeric">
+            {{ line.unitPrice | currency: detail.currency : 'symbol' : '1.2-4' }}
+          </td>
+          <td class="numeric">{{ line.total | currency: detail.currency }}</td>
+        </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr>
+        <th scope="row" colspan="3">Invoice total</th>
+        <td class="numeric">{{ detail.total | currency: detail.currency }}</td>
+      </tr>
+    </tfoot>
+  </table>
+} @else {
+  <p class="state">Loading invoice…</p>
+}

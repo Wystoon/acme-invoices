@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "acme": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["tools/acme-mcp/dist/index.js"],
+      "env": { "ACME_TOOLSET": "focused" }
+    }
+  }
+}

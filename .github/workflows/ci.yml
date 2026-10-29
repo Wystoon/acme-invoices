@@ -1,0 +1,34 @@
+# What a workshop attendee runs after cloning, on each OS: scripts/setup.mjs (tools, dependencies, the
+# local remote with its policy), then scripts/ci.mjs (every check, in order, failing fast). This matrix is
+# the Linux and Windows verification; recordings are made on macOS.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    name: ci (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "26"
+
+      - name: Setup
+        run: node scripts/setup.mjs
+
+      - name: CI
+        run: node scripts/ci.mjs
