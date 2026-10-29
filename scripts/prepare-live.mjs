@@ -32,10 +32,10 @@ const ahead = git(["rev-list", "--count", "origin/main..main"]);
 console.log(`\n✔ Ready for the live demo: mode "${currentMode()}", local main ${ahead} commit(s) ahead of origin/main, .acme/runs empty.`);
 console.log(`
 Open three windows in ${repoRoot} (start the Claude Code ones now, after this script):
-  1. A plain terminal                        steps 1 and 2: level 7 (clip 2b), level 5 (same input, twice)
-  2. claude-demo                             step 3: levels 4 and 3, the coordinator
-  3. claude-demo --agent acme-implementer    step 5: level 6 (clip 2), the implementer
-  Steps 4 and 6 are recorded clips (clips 9 and 10); step 7 is a sentence.`);
+  1. A plain terminal                        end of step 3: level 7, a push to main the server rejects
+  2. claude-demo                             step 1: levels 4, 5 and 3, the coordinator
+  3. claude-demo --agent acme-implementer    step 3: level 6, the implementer
+  Steps 2 and 4 are recorded clips (clips 9 and 10); step 5 is a sentence.`);
 
 function sourceFiles(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) =>
