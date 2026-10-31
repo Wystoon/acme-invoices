@@ -136,7 +136,7 @@ Our results, at least 3 runs each, October 2026:
 | What | Before (MegaAgent) | After |
 | --- | --- | --- |
 | R6 followed (Epic and sibling comments fetched) | 0 of 6 | – |
-| Context file identical across runs | – | 3 of 3 |
+| Context file identical across runs | – | 15 of 15 |
 | Main agent's context | about 56,000 tokens | about 8,000 tokens |
 | `db-migrations` skill loaded | – | 3 of 3 for 4824, 0 of 3 for 4821 |
 
